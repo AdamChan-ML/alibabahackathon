@@ -5,7 +5,14 @@ from UploadReceipt import upload_receipt_feature
 from TaxDeduction import tax_summary
 from TaxReadiness import tax_readiness_feat
 
-with gr.Blocks() as app:
+
+with gr.Blocks() as app:        
+    gr.Markdown("""
+    <div align="center">
+        <h1>🇲🇾 Taxy: Make Your Tax Journey Easier</h1>
+        <p>Welcome to your personalized Malaysian tax relief assistant powered by AI & Alibaba Cloud.</p>
+    </div>
+    """)
     with gr.Tab("Profile"):
         create_profile()
 
