@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 from datetime import datetime
 
+# If you still need this (e.g., for future use)
 def get_income_expenses_data():
     return pd.DataFrame({
         'Month': ['January', 'February', 'March', 'April', 'May', 'June',
@@ -12,6 +13,7 @@ def get_income_expenses_data():
         'Year': [2024] * 12
     })
 
+# If you still need this
 def get_recent_transactions():
     return pd.DataFrame({
         "No.": [1, 2, 3],
@@ -21,54 +23,20 @@ def get_recent_transactions():
         "RM": ["100.00", "250.00", "50.00"]
     })
 
-def plot_pie_chart_plotly(labels, sizes, colors, title):
-    fig = px.pie(
-        names=labels,
-        values=sizes,
-        title=title,
-        color_discrete_sequence=colors
-    )
-    fig.update_traces(textinfo='percent+label')
-    return fig
-
-def plot_bar_chart(year):
-    df = get_income_expenses_data()
-    return px.bar(
-        df[df['Year'] == year], x='Month', y=['Income', 'Expenses'],
-        title=f"Income and Expenses for {year}",
-        labels={'value': 'Amount (RM)', 'variable': 'Type'},
-        barmode='group'
-    )
+# Your Quick BI embed URL
+quick_bi_embed_url = "https://bi-cn-hongkong.data.aliyun.com/token3rd/dashboard/view/pc.htm?pageId=1b28a72a-e889-479d-bc7e-e5035fee9564&accessTicket=29dc3913-0a71-465c-8a2f-3f6bb11b4e59&dd_orientation=auto"
 
 def create_dashboard():
-    with gr.Column() as dashboard:  # ✅ No gr.Blocks inside here
+    with gr.Column() as dashboard:
         gr.Markdown("# Dashboard View")
         gr.Markdown(f"## Today's Date: {datetime.today().strftime('%B %d, %Y')}")
         gr.Markdown("### Estimated Tax Payable: RM5,200 (estimate)")
         gr.Markdown("*⚠️ This is just an estimate. Please confirm with LHDN or your tax consultant.*")
 
-        with gr.Row():
-            with gr.Column():
-                gr.Markdown("### Deductible Expenses")
-                gr.Plot(plot_pie_chart_plotly(
-                    ['Lifestyle & Education', 'Medical & Insurance', 'Childcare & Family', 'Home Equipment'],
-                    [25, 20, 15, 10],
-                    ['#3498db', '#e74c3c', '#f39c12', '#2ecc71'],
-                    "Deductible Expenses"
-                ))
-            with gr.Column():
-                gr.Markdown("### Non-Deductible Expenses")
-                gr.Plot(plot_pie_chart_plotly(
-                    ['Food & Beverage', 'Utilities & Rent', 'Entertainment', 'Others'],
-                    [30, 20, 10, 20],
-                    ['#e74c3c', '#9b59b6', '#f1c40f', '#34495e'],
-                    "Non-Deductible Expenses"
-                ))
-
-        gr.Markdown("### Monthly Income & Expenses")
-        gr.Plot(plot_bar_chart(2024))
-
-        gr.Markdown("### Recent Transactions")
-        gr.Dataframe(get_recent_transactions())
+        # ✅ Embedded Quick BI Dashboard replaces pie, bar, and table
+        gr.HTML(f"""
+            <iframe src="{quick_bi_embed_url}" width="100%" height="1200px" frameborder="0" allowfullscreen></iframe>
+            <p style='color: gray; font-size: 12px;'>Dashboard provided by Quick BI</p>
+        """)
 
     return dashboard
