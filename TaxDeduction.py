@@ -34,7 +34,7 @@ def ui_chat(user_message, history):
 def tax_summary():
     with gr.Blocks(title="Malaysian Tax Assistant", theme=gr.themes.Soft()) as demo:
         gr.Markdown("""
-        # 🇲🇾 Taxy: Make Your Tax Journey Easier
+        # 🇲🇾 Malaysian Tax Deduction Assistant
         Welcome to your personalized Malaysian tax relief guide powered by AI.
         """)
 
