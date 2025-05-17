@@ -21,4 +21,4 @@ with gr.Blocks() as app:
     with gr.Tab("Tax Readiness"):
         tax_readiness_feat()
 
-app.launch()
+app.launch(share=True)
