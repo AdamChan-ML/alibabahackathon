@@ -30,9 +30,7 @@ def create_dashboard():
     with gr.Column() as dashboard:
         gr.Markdown("# Dashboard View")
         gr.Markdown(f"## Today's Date: {datetime.today().strftime('%B %d, %Y')}")
-        gr.Markdown("### Estimated Tax Payable: RM5,200 (estimate)")
-        gr.Markdown("*⚠️ This is just an estimate. Please confirm with LHDN or your tax consultant.*")
-
+        
         # ✅ Embedded Quick BI Dashboard replaces pie, bar, and table
         gr.HTML(f"""
             <iframe src="{quick_bi_embed_url}" width="100%" height="1200px" frameborder="0" allowfullscreen></iframe>

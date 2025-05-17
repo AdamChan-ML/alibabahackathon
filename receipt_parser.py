@@ -7,10 +7,13 @@ import base64
 from io import BytesIO
 import json
 import logging
+from dotenv import load_dotenv
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+load_dotenv()
 
 # Configure DashScope with API key from environment
 api_key = os.getenv("DASHSCOPE_API_KEY")

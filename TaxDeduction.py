@@ -34,12 +34,12 @@ def ui_chat(user_message, history):
 def tax_summary():
     with gr.Blocks(title="Malaysian Tax Assistant", theme=gr.themes.Soft()) as demo:
         gr.Markdown("""
-        # 🇲🇾 Malaysian Tax Deduction Assistant
+        # 🇲🇾 Taxy: Make Your Tax Journey Easier
         Welcome to your personalized Malaysian tax relief guide powered by AI.
         """)
 
         # --- Tax Payable Scorecard ---
-        gr.Markdown("## 💰 Estimated Tax Payable")
+        gr.Markdown("## 💰 Current Tax Payable")
         with gr.Row():
             with gr.Column(scale=1):
                 pass
