@@ -21,4 +21,4 @@ with gr.Blocks() as app:
     with gr.Tab("Tax Readiness"):
         tax_readiness_feat()
 
-app.launch(share=True)
+app.launch(server_name="0.0.0.0", server_port=7860)
